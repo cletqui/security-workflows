@@ -45,5 +45,6 @@ jobs:
 | `semgrep_configs` | `p/typescript p/javascript p/nodejs p/owasp-top-ten` | space separated Semgrep rule packs |
 | `codeql_language` | empty | CodeQL language, empty skips it |
 | `codeql_build_mode` | `none` | CodeQL build mode |
+| `codeql_upload` | `always` | set to `never` when GitHub's CodeQL default setup is enabled, so the analysis still runs and reaches DefectDojo without being uploaded to Code Scanning |
 
 The import runs on push, schedule and manual runs, never on pull requests.

@@ -27,6 +27,9 @@ on:
       codeql_build_mode:
         type: string
         default: none
+      codeql_upload:
+        type: string
+        default: always
     secrets:
       DOJO_TOKEN:
         required: true
@@ -116,6 +119,7 @@ jobs:
         with:
           category: /language:${{ inputs.codeql_language }}
           output: codeql-results
+          upload: ${{ inputs.codeql_upload }}
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: ${{ !cancelled() }}
         with:
