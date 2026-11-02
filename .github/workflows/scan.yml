@@ -11,7 +11,7 @@ on:
         default: apps
       dojo_url:
         type: string
-        default: https://dojo.cybai.re
+        required: true
       min_severity:
         type: string
         default: High

@@ -25,6 +25,7 @@ jobs:
     uses: cletqui/security-workflows/.github/workflows/scan.yml@<commit sha> # v1.0.0
     with:
       product: myrepo
+      dojo_url: ${{ vars.DOJO_URL }}
       osv_lockfile: bun.lock
       codeql_language: javascript-typescript
     secrets:
@@ -39,7 +40,7 @@ jobs:
 |---|---|---|
 | `product` | required | DefectDojo asset name |
 | `product_type` | `apps` | DefectDojo organization |
-| `dojo_url` | `https://dojo.cybai.re` | DefectDojo base URL |
+| `dojo_url` | required | DefectDojo base URL, typically `${{ vars.DOJO_URL }}` |
 | `min_severity` | `High` | lowest severity imported |
 | `osv_lockfile` | empty | lockfile for osv-scanner, empty skips it |
 | `semgrep_configs` | `p/typescript p/javascript p/nodejs p/owasp-top-ten` | space separated Semgrep rule packs |
